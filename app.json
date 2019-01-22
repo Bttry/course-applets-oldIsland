@@ -1,0 +1,16 @@
+{
+  "pages": ["pages/classic/classic"],
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "旧岛",
+    "navigationStyle": "default",
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "dark",
+    "backgroundColorTop": "#fff",
+    "backgroundColorBottom": "#fff",
+    "enablePullDownRefresh": false,
+    "onReachBottomDistance": 50,
+    "pageOrientation": "portrait"
+  }
+}
