@@ -1,13 +1,11 @@
-import { customizeRequest } from "./utils/index.js";
-const regeneratorRuntime = require("./utils/runtime.js");
+import utils from './utils/index'
+import regeneratorRuntime from './utils/runtime'
 
 App({
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
-  onLaunch: function() {
-    wx.MAPP = { customizeRequest };
-  },
+  onLaunch: function() {},
 
   /**
    * 当小程序启动，或从后台进入前台显示，会触发 onShow
@@ -24,6 +22,7 @@ App({
    */
   onError: function(msg) {},
   globalData: {
-    regeneratorRuntime: require("./utils/runtime.js")
+    regeneratorRuntime,
+    MAPP: utils
   }
-});
+})

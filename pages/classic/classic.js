@@ -1,4 +1,4 @@
-const regeneratorRuntime = getApp().globalData.regeneratorRuntime;
+const { regeneratorRuntime, MAPP } = getApp().globalData
 
 Page({
   /**
@@ -10,6 +10,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
+    let result = await MAPP.customizeRequest({ url: '/api/getTest' })
+    console.log(result)
     // console.log(regeneratorRuntime);
     // wx.request({
     //   url: "http://127.0.0.1:3000/api/getTest",
@@ -53,4 +55,4 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {}
-});
+})

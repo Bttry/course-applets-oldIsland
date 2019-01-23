@@ -16,7 +16,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.5.1",
 	"appid": "wx20da32f2056b153f",
-	"projectname": "%E6%97%A7%E5%B2%9B",
+	"projectname": "course-applets-oldIsland",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
