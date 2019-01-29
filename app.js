@@ -1,5 +1,5 @@
-import utils from './utils/index'
-import regeneratorRuntime from './utils/runtime'
+import utils from "./utils/index";
+import regeneratorRuntime from "./utils/runtime";
 
 App({
   /**
@@ -21,8 +21,12 @@ App({
    * 当小程序发生脚本错误，或者 api 调用失败时，会触发 onError 并带上错误信息
    */
   onError: function(msg) {},
+
+  /**
+   * 全局变量
+   */
   globalData: {
     regeneratorRuntime,
     MAPP: utils
   }
-})
+});

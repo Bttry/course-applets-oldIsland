@@ -10,7 +10,3 @@ https://developers.weixin.qq.com/miniprogram/dev/framework/MINA.html
 
 - flex
 - rpx
-
-## Ts + Koa 搭建 `server` 端
-
-推荐文章: https://www.jianshu.com/p/1a91f36e5153

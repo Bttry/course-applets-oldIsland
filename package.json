@@ -4,9 +4,7 @@
   "description": "旧岛-小程序",
   "main": "app.js",
   "scripts": {
-    "start": "tsc && node dist-server/app.js",
-    "dev": "nodemon --watch 'server/**/*' -e ts,tsx --exec 'ts-node' ./server/app.ts",
-    "dev-debug": "nodemon --inspect --watch 'server/**/*' -e ts,tsx --exec 'node -r ts-node/register' ./server/app.ts"
+    "dev": "nodemon server/app.js"
   },
   "repository": {
     "type": "git",
@@ -18,22 +16,15 @@
     "url": "https://github.com/Bttry/course-applets-oldIsland/issues"
   },
   "homepage": "https://github.com/Bttry/course-applets-oldIsland#readme",
-  "devDependencies": {
-    "@koex/onerror": "0.0.1",
-    "@types/koa": "^2.0.48",
-    "@types/koa-bodyparser": "^4.2.1",
-    "@types/koa-logger": "^3.1.1",
-    "@types/koa-router": "^7.0.39",
-    "@types/koa-static": "^4.0.0"
-  },
+  "devDependencies": {},
   "dependencies": {
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-logger": "^3.2.0",
+    "koa-onerror": "^4.1.0",
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
-    "nodemon": "^1.18.9",
-    "ts-node": "^8.0.1",
-    "typescript": "^3.2.4"
+    "mongoose": "^5.4.6",
+    "nodemon": "^1.18.9"
   }
 }
