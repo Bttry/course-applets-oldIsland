@@ -14,7 +14,7 @@
 		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.5.1",
+	"libVersion": "2.5.2",
 	"appid": "wx20da32f2056b153f",
 	"projectname": "course-applets-oldIsland",
 	"debugOptions": {

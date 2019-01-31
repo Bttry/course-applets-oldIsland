@@ -15,8 +15,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    yesSrc: "images/like.png",
-    noSrc: "images/like@dis.png"
+    yesSrc: 'images/like.png',
+    noSrc: 'images/like@dis.png'
   },
 
   /**
@@ -24,9 +24,18 @@ Component({
    */
   methods: {
     onLike(event) {
-      let { like, count } = this.properties;
-      like ? --count : ++count;
-      this.setData({ count, like: !like });
+      let { like, count } = this.properties
+      like ? --count : ++count
+      this.setData({ count, like: !like })
+
+      let behavior = this.properties.like ? 'like' : 'cancel'
+      this.triggerEvent(
+        'like',
+        {
+          behavior
+        },
+        {}
+      )
     }
   }
-});
+})

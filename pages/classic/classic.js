@@ -1,24 +1,29 @@
-const { regeneratorRuntime, MAPP } = getApp().globalData;
+const { regeneratorRuntime, MAPP } = getApp().globalData
+import likeMode from '../../models/like'
 
 Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    classic: null,
+    test: 1
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
-    // let result = await MAPP.customizeRequest({ url: '/api/getTest' })
-    // console.log(result)
-    // console.log(regeneratorRuntime);
-    // wx.request({
-    //   url: "http://127.0.0.1:3000/api/getTest",
-    //   success: function(data) {
-    //     console.log(data);
-    //   }
-    // });
+    let { data } = await MAPP.customizeRequest({ url: '/classic/latest' })
+    this.setData({
+      classic: data
+    })
+  },
+
+  onLike(event) {
+    let behavior = event.detail.behavior,
+      { _id, type } = this.data.classic
+    likeMode.like(behavior, _id, type)
   },
 
   /**
@@ -55,4 +60,4 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {}
-});
+})
