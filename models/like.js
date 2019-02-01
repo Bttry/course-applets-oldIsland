@@ -2,7 +2,7 @@ const { MAPP } = getApp().globalData
 
 export default {
   like: (behavior, artID, category) => {
-    let url = behavior == 'like' ? '/like' : '/like/cancal'
+    let url = behavior == 'like' ? '/api-v1/like' : '/api-v1/like/cancal'
 
     return MAPP.customizeRequest({
       url,

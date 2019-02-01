@@ -1,4 +1,5 @@
-const { regeneratorRuntime, MAPP } = getApp().globalData
+const { regeneratorRuntime } = getApp().globalData
+import classicMode from '../../models/classic'
 import likeMode from '../../models/like'
 
 Page({
@@ -7,14 +8,16 @@ Page({
    */
   data: {
     classic: null,
-    test: 1
+    first: false,
+    latest: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
-    let { data } = await MAPP.customizeRequest({ url: '/classic/latest' })
+    let { data } = await classicMode.getLatest()
+    console.log(data)
     this.setData({
       classic: data
     })

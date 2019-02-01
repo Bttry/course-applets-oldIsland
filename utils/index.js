@@ -30,7 +30,7 @@ export default {
         success: res => {
           let code = res.statusCode.toString()
           if (code.startsWith('2')) {
-            resolve({ data: res.data, res })
+            resolve({ data: res.data.data, res })
           } else {
             let error_code = res.data.error_code
             _show_error(error_code)
