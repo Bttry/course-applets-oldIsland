@@ -17,7 +17,6 @@ Page({
    */
   async onLoad(options) {
     let { data } = await classicMode.getLatest()
-    console.log(data)
     this.setData({
       classic: data
     })
@@ -28,6 +27,10 @@ Page({
       { _id, type } = this.data.classic
     likeMode.like(behavior, _id, type)
   },
+
+  onNext(event) {},
+
+  onPrevious(event) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成

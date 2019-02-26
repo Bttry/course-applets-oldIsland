@@ -24,7 +24,14 @@ Component({
    */
   methods: {
     onLeft(event) {
-      this.triggerEvent('left', {}, {})
+      if (!this.properties.latest) {
+        this.triggerEvent('left', {}, {})
+      }
+    },
+    onRight(event) {
+      if (!this.properties.first) {
+        this.triggerEvent('right', {}, {})
+      }
     }
   }
 })
