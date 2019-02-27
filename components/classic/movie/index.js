@@ -6,15 +6,15 @@ Component({
    */
   properties: {
     img: {
-      type: String,
-      observer(newVal, oldVal, changedPath) {
-        if (newVal) {
-          let url = MAPP.config.api_base_url
-          this.setData({
-            image: `${url}${newVal}`
-          })
-        }
-      }
+      type: String
+      // observer(newVal, oldVal, changedPath) {
+      //   if (newVal) {
+      //     let url = MAPP.config.api_base_url
+      //     this.setData({
+      //       image: `${url}${newVal}`
+      //     })
+      //   }
+      // }
     },
     content: {
       type: String
@@ -22,7 +22,7 @@ Component({
   },
 
   data: {
-    image: ''
+    // image: ''
   },
 
   /**

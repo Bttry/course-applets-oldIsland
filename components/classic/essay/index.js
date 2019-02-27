@@ -10,7 +10,9 @@ Component({
   /**
    * 组件的属性列表
    */
-  properties: {},
+  properties: {
+    img: Number
+  },
 
   /**
    * 组件的初始数据

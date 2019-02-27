@@ -17,6 +17,8 @@ Page({
    */
   async onLoad(options) {
     let { data } = await classicMode.getLatest()
+    classicMode.setLatestIndex(data.index)
+    console.log(data)
     this.setData({
       classic: data
     })
@@ -28,9 +30,23 @@ Page({
     likeMode.like(behavior, _id, type)
   },
 
-  onNext(event) {},
+  onNext(event) {
+    this._updateClassic('next')
+  },
 
-  onPrevious(event) {},
+  onPrevious(event) {
+    this._updateClassic('previous')
+  },
+
+  async _updateClassic(nextOrPrevious) {
+    let index = this.data.classic.index
+    let { data } = await classicMode.getClassic(index, nextOrPrevious)
+    this.setData({
+      classic: data,
+      latest: classicMode.isLatest(data.index),
+      first: classicMode.isFirst(data.index)
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -28,12 +28,12 @@ export default {
           appkey: config.appkey
         },
         success: res => {
-          let code = res.statusCode.toString()
+          let { data } = res,
+            code = data.code.toString()
           if (code.startsWith('2')) {
-            resolve({ data: res.data.data, res })
+            resolve({ data: data.data, res })
           } else {
-            let error_code = res.data.error_code
-            _show_error(error_code)
+            _show_error(code)
             reject()
           }
         },
