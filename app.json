@@ -1,8 +1,6 @@
 {
-  "pages": [
-    "pages/classic/classic",
-    "components/classic/movie/index"
-  ],
+  "pages": ["pages/classic/classic", "components/classic/movie/index"],
+  "requiredBackgroundModes": ["audio"],
   "window": {
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTextStyle": "black",

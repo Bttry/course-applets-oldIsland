@@ -1,32 +1,53 @@
 const { MAPP } = getApp().globalData
+const { regeneratorRuntime } = getApp().globalData
 
 export default {
-  getLatest() {
-    return MAPP.customizeRequest({
+  async getLatest() {
+    let { data } = await MAPP.customizeRequest({
       url: '/api-v1/classic/latest'
     })
+    this._setLatestIndex(data.index)
+    wx.setStorageSync(this._getKey(data.index), data)
+    return data
   },
-  getPrevious(index) {
-    return MAPP.customizeRequest({
+  async getPrevious(index) {
+    let { data } = await MAPP.customizeRequest({
       url: `/api-v1/classic/${index}/previous`
     })
+    return data
   },
-  getClassic(index, nextOrPrevious) {
-    return MAPP.customizeRequest({
-      url: `/api-v1/classic/${index}/${nextOrPrevious}`
-    })
+  async getClassic(index, nextOrPrevious) {
+    let key =
+      nextOrPrevious === 'next'
+        ? this._getKey(index + 1)
+        : this._getKey(index - 1)
+    let classic = wx.getStorageSync(key)
+
+    if (!classic) {
+      let { data } = await MAPP.customizeRequest({
+        url: `/api-v1/classic/${index}/${nextOrPrevious}`
+      })
+      wx.setStorageSync(this._getKey(data.index), data)
+      return data
+    } else {
+      return classic
+    }
   },
   isFirst(index) {
     return index === 1 ? true : false
   },
   isLatest(index) {
-    let latestIndex = this.getLatestIndex()
+    let latestIndex = this._getLatestIndex()
     return latestIndex === index ? true : false
   },
-  setLatestIndex(index) {
+  _setLatestIndex(index) {
     wx.setStorageSync('latest', index)
   },
-  getLatestIndex() {
+  _getLatestIndex() {
     return wx.getStorageSync('latest')
+  },
+  _getKey(index) {
+    let key = `classic-${index}`
+    return key
   }
 }

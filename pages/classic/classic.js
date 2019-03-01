@@ -9,18 +9,20 @@ Page({
   data: {
     classic: null,
     first: false,
-    latest: true
+    latest: true,
+    likeStatus: false,
+    likeCount: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
-    let { data } = await classicMode.getLatest()
-    classicMode.setLatestIndex(data.index)
-    console.log(data)
+    let data = await classicMode.getLatest()
     this.setData({
-      classic: data
+      classic: data,
+      likeStatus: data.like_status,
+      likeCount: data.fav_nums
     })
   },
 
@@ -40,11 +42,21 @@ Page({
 
   async _updateClassic(nextOrPrevious) {
     let index = this.data.classic.index
-    let { data } = await classicMode.getClassic(index, nextOrPrevious)
+    let data = await classicMode.getClassic(index, nextOrPrevious)
+    this._getLikeStatus(data._id, data.type)
     this.setData({
       classic: data,
       latest: classicMode.isLatest(data.index),
       first: classicMode.isFirst(data.index)
+    })
+  },
+
+  async _getLikeStatus(artID, category) {
+    let data = await likeMode.getClassicLikeStatus(artID, category)
+
+    this.setData({
+      likeCount: data.fav_nums,
+      likeStatus: data.like_status
     })
   },
 

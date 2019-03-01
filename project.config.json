@@ -10,11 +10,11 @@
 		"minified": true,
 		"newFeature": true,
 		"nodeModules": true,
-		"autoAudits": true,
+		"autoAudits": false,
 		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.5.2",
+	"libVersion": "2.6.1",
 	"appid": "wx20da32f2056b153f",
 	"projectname": "course-applets-oldIsland",
 	"debugOptions": {

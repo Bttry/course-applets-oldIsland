@@ -1,4 +1,4 @@
-<!-- components/classic/epsoide/index.wxml -->
+<!-- components/classic/episode/index.wxml -->
 <view class='container'>
   <view class="index-container">
     <text class="plain">No.</text>

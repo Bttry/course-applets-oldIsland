@@ -1,4 +1,4 @@
-/* components/classic/epsoide/index.wxss */
+/* components/classic/episode/index.wxss */
 .index {
   font-size: 60rpx;
   line-height: 60rpx;

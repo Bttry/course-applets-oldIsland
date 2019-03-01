@@ -1,25 +1,14 @@
-const { MAPP } = getApp().globalData
+import { classicBeh } from '../classic-beh'
 
 Component({
   /**
+   * 组件继承
+   */
+  behaviors: [classicBeh],
+  /**
    * 组件的属性列表
    */
-  properties: {
-    img: {
-      type: String
-      // observer(newVal, oldVal, changedPath) {
-      //   if (newVal) {
-      //     let url = MAPP.config.api_base_url
-      //     this.setData({
-      //       image: `${url}${newVal}`
-      //     })
-      //   }
-      // }
-    },
-    content: {
-      type: String
-    }
-  },
+  properties: {},
 
   data: {
     // image: ''
